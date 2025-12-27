@@ -16,4 +16,6 @@ module "iam_rbac" {
   bucket_arn = module.s3_secure_storage.bucket_arn
   
   project_name = var.project_name
+
+  pgp_key = var.pgp_key
 }

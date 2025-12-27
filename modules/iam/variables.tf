@@ -9,3 +9,7 @@ variable "project_name" {
   default     = "rbac-playground"
 }
 
+variable "pgp_key" {
+    description = "Chiave pubblica PGP"
+    type        = string
+}

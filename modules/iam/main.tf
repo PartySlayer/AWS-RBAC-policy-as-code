@@ -88,3 +88,17 @@ resource "aws_iam_group_policy_attachment" "attach_senior" {
   group      = aws_iam_group.seniors.name
   policy_arn = aws_iam_policy.senior_policy.arn
 }
+
+# Profili di login tramite user e chiave, reset password a primo accesso
+
+resource "aws_iam_user_login_profile" "alessandro_login" {
+  user                    = aws_iam_user.alessandro.name
+  pgp_key                 = var.pgp_key
+  password_reset_required = true
+}
+
+resource "aws_iam_user_login_profile" "beatrice_login" {
+  user                    = aws_iam_user.beatrice.name
+  pgp_key                 = var.pgp_key
+  password_reset_required = true
+}
