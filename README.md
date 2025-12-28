@@ -6,7 +6,8 @@ Questo progetto nasce dalla necessità di simulare una gestione degli accessi En
 
 L'obiettivo è dimostrare come blindare le risorse critiche (S3) non solo tramite permessi statici, ma attraverso condizioni di sicurezza dinamiche, come l'obbligo di autenticazione Multi-Factor (MFA) per le operazioni distruttive.
 
-<img width="628" height="350" alt="image" src="https://github.com/user-attachments/assets/a70cfcd3-fc29-446b-9f92-aaae07b1457a" />
+<img width="647" height="350" alt="image" src="https://github.com/user-attachments/assets/c0e5ecd6-92f1-462e-a996-61ecd530d1c8" />
+
 
 ## 🏗️ Architettura & Sicurezza
 
