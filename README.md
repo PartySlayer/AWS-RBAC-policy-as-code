@@ -13,6 +13,8 @@ L'obiettivo è dimostrare come blindare le risorse critiche (S3) non solo tramit
 
 <img width="671" height="541" alt="iam-s3" src="https://github.com/user-attachments/assets/ffefcd71-61de-43b1-b61f-a4511c10669e" />
 
+---
+
 Il deployment è **completamente gestito tramite Terraform** e si poggia su tre pilastri:
 
 * **S3 Hardening**: Bucket configurato con Server-Side Encryption (AES256) e Public Access Block attivo.
