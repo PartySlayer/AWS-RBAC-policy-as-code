@@ -11,7 +11,7 @@ L'approccio è **Infrastructure as Code (IaC)**: ogni scenario è completamente 
 | Livello | Lab ID | Titolo | Focus Tecnico | Stato |
 | :---: | :--- | :--- | :--- | :--- |
 | 🟢 | **01** | [**Policy-as-code**](./labs/01-policy-as-code) | IAM Users, Groups, MFA Enforcement, S3 Encryption, PGP Secrets | ✅ Completato |
-| 🟡 | **02** | [**The Role Principle**](./labs/02-no-more-users) | Eliminare gli IAM Users, EC2 Instance Profiles, `sts:AssumeRole` | 🚧 Coming Soon |
+| 🟡 | **02** | [**The Role Principle**](./labs/02-no-more-users) | Eliminare gli IAM Users, EC2 Instance Profiles, `sts:AssumeRole` | ✅ Completato |
 | 🔴 | **03** | **Secrets & Network Isolation** | AWS Secrets Manager, KMS, VPC Endpoints & Bucket Policies | 🔒 Locked |
 
 ## 🛠️ Tech Stack Globale
