@@ -7,5 +7,6 @@ output "secret_arn" {
 }
 
 output "test_command" {
+  description = "Comando per testare come funziona il flusso. Assicurati che le risorse e la CLI siano nella stessa region oppure esplicitala!"
   value = "aws lambda invoke --function-name ${aws_lambda_function.app.function_name} response.json && cat response.json"
 }

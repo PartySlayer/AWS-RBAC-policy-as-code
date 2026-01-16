@@ -28,7 +28,7 @@ def handler(event, context):
         print("Segreto recuperato con successo!")
         
         # In uno scenario reale, questo non accade ma...
-        # Qui lo stampiamo parzialmente solo per demo (NON FARLO IN PROD AMICO!)
+        # Qui lo stampiamo parzialmente solo per demo (NON FARLO IN PROD!)
 
         secret_dict = json.loads(secret)
         masked_pwd = secret_dict['password'][:2] + "*" * 5

@@ -3,9 +3,7 @@
 > **Obiettivo:** Eliminare le credenziali a lungo termine (Access Keys) e utilizzare credenziali temporanee tramite IAM Roles.
 
 <img width="1143" height="723" alt="no-more-users" src="https://github.com/user-attachments/assets/093dbe16-9540-494f-98bd-0c0f3a5941ce" />
-
-
-
+git a
 ## 🧐 Il Problema
 
 Nel [**Lab 01**](../01-policy-as-code), gli utenti (Alessandro/Beatrice) usavano user/password o access keys.
