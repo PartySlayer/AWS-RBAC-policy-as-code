@@ -2,12 +2,9 @@
 
 ## IaC + IAM = policy-as-code
 
-Questo progetto nasce dalla necessità di simulare una gestione degli accessi Enterprise-Grade su AWS, applicando i principi di sicurezza standard (Least Privilege, Zero Trust) e la Compliance automatizzata.
-
-L'obiettivo è dimostrare come blindare le risorse critiche (S3) non solo tramite permessi statici, ma attraverso condizioni di sicurezza dinamiche, come l'obbligo di autenticazione Multi-Factor (MFA) per le operazioni distruttive.
+> **Obiettivo:** dimostrare come blindare le risorse critiche (S3) non solo tramite permessi statici, ma attraverso condizioni di sicurezza dinamiche, come l'obbligo di autenticazione Multi-Factor (MFA) per le operazioni distruttive.
 
 <img width="649" height="352" alt="image" src="https://github.com/user-attachments/assets/fcb18f8d-de98-4a58-a296-dbafebb34022" />
-
 
 ## 🏗️ Architettura & Sicurezza
 
@@ -23,10 +20,40 @@ Il deployment è **completamente gestito tramite Terraform** e si poggia su tre 
 
 * **MFA Enforcement**: Una policy condizionale che nega esplicitamente le azioni di scrittura ai profili Senior se non è presente un token MFA attivo nella sessione.
 
-## 🛠️ Tech Stack
 
-Infrastructure as Code: Terraform
+## 🚀 Test per validare
 
-Cloud Provider: AWS (IAM, S3)
+1. Deploya l'infrastruttura (assicurati di passare la tua chiave pubblica PGP per le password)::
 
-Security Tools: IAM Policy Conditions, MFA, Global Condition Keys
+    ```bash
+    terraform apply -var="pgp_key=$(cat key.txt)"
+    ```
+
+2. Recupera le password **decifrandole** (output di Terraform):
+```bash
+terraform output -json passwords | jq -r .beatrice | base64 --decode | gpg --decrypt
+```
+
+3. Prova ad accedere come Beatrice (Senior) da CLI o Console AWS
+4. Esegui un comando di scrittura senza MFA:
+
+    ```bash
+    aws s3 cp test.txt s3://<IL_TUO_BUCKET>
+    ```
+**❌ Risultato**: AccessDenied (La policy blocca la scrittura senza MFA).  
+
+5. **Autenticati con MFA:**(GetSessionToken) e riprova:
+   
+✅ Risultato: Successo!
+
+## 🧹 Cleanup
+
+```bash
+terraform destroy
+```
+
+### 🏁 Prossimo Step: Lab 02 (Roles Principle)
+
+Sai che anche le risorse hanno bisogno di permessi specifici per ogni azione? Proprio come un utente ma per loro creiamo i **ruoli**. 
+Vai a scoprirlo nel [**Lab 02: No more users**](../02-no-more-users)
+
