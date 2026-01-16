@@ -25,7 +25,7 @@ A runtime, interroga le API AWS per ottenere la password decifrata, usandola sol
     * Chiama `boto3` per ottenere il valore.
     * Simula la connessione al DB.
 
-## 🚀 How to Validate
+## 🚀 Test per validare
 
 1.
 
