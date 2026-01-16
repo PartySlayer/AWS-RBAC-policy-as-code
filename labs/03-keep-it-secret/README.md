@@ -27,7 +27,7 @@ A runtime, interroga le API AWS per ottenere la password decifrata, usandola sol
 
 ## 🚀 Test per validare
 
-1.
+1. Deploya l'infrastruttura
 
     ```bash
     terraform apply
