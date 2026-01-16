@@ -1,6 +1,10 @@
 # Usiamo i RUOLI (No More Users)
 
-> **Obiettivo:** Eliminare le credenziali a lungo termine (Access Keys) dalle applicazioni e utilizzare credenziali temporanee tramite IAM Roles.
+> **Obiettivo:** Eliminare le credenziali a lungo termine (Access Keys) e utilizzare credenziali temporanee tramite IAM Roles.
+
+<img width="1143" height="723" alt="no-more-users" src="https://github.com/user-attachments/assets/093dbe16-9540-494f-98bd-0c0f3a5941ce" />
+
+
 
 ## 🧐 Il Problema
 
@@ -16,7 +20,7 @@ Ma quando un'applicazione (es. su EC2) deve accedere ad AWS, dove salviamo le cr
 Invece di dare un'identità alla macchina, le diamo un "Ruolo" che può assumere.
 Le credenziali non vengono mai salvate su disco: sono generate dinamicamente dal **Metadata Service** di AWS e ruotate automaticamente ogni poche ore.
 
-## 🏗️ Architecture
+## 🏗️ Architettura
 
 1. **EC2 Instance:** Una macchina virtuale, usiamo Amazon Linux 2023.
 2. **Instance Profile:** Il contenitore che passa il ruolo alla EC2.
