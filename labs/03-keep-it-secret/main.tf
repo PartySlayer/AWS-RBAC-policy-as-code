@@ -82,7 +82,7 @@ resource "aws_lambda_function" "app" {
   function_name = "${var.project_name}-app"
   role          = aws_iam_role.lambda_exec.arn
   handler       = "main.handler"
-  runtime       = "python3.9"
+  runtime       = "python3.12"
 
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 

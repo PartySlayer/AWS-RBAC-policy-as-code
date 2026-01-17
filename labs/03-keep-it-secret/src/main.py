@@ -1,17 +1,26 @@
 import boto3
 import json
 import os
+import logging
+from botocore.exceptions import ClientError
+
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+try:
+    client = boto3.client('secretsmanager')
+except Exception as e:
+    logger.error(f"ERRORE: fallimento init Secret Manager : {str(e)}")
+    raise e
 
 def handler(event, context):
-    secret_name = os.environ['SECRET_NAME']
-    region_name = os.environ['AWS_REGION']
+    secret_name = os.environ.get('SECRET_NAME') # la region è specificata nell'invoke, rom
+    
+    if not secret_name:
+        logger.error("Environment variable SECRET_NAME is missing")
+        raise ValueError("SECRET_NAME environment variable is not defined")
 
-    # Crea un client per Secrets Manager
-    session = boto3.session.Session()
-    client = session.client(
-        service_name='secretsmanager',
-        region_name=region_name
-    )
+    logger.info(f"Retrieving secret: {secret_name}")
 
     try:
         # get password da aws
@@ -19,13 +28,13 @@ def handler(event, context):
             SecretId=secret_name
         )
     except Exception as e:
-        print(f"Errore nel recupero del segreto: {e}")
+        logger.error(f"Errore nel recupero del segreto: {e}")
         raise e
 
     # decode del secret
     if 'SecretString' in get_secret_value_response:
         secret = get_secret_value_response['SecretString']
-        print("Segreto recuperato con successo!")
+        logger.error("Segreto recuperato con successo!")
         
         # In uno scenario reale, questo non accade ma...
         # Qui lo stampiamo parzialmente solo per demo (NON FARLO IN PROD!)
