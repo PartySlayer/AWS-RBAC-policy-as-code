@@ -14,6 +14,10 @@ A prescindere da chi sei (anche se sei Admin!).
 
 ## 🏗️ Architettura
 
+<img width="1202" height="782" alt="network-isolation" src="https://github.com/user-attachments/assets/3276e0ca-aafc-4239-bc6a-1655e4d350ca" />  
+
+---
+
 1. **VPC & Subnet:** Una rete privata isolata (con una Subnet Pubblica per l'accesso di gestione).
 2. **VPC Endpoint (S3):** Un collegamento che instrada il traffico S3 internamente alla rete AWS, senza passare da Internet pubblico.
 3. **Bucket Policy "Fortress":** Blocca tutto il traffico che non soddisfa la condizione `aws:SourceVpce`.
